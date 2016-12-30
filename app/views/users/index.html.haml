@@ -1,0 +1,62 @@
+
+%header.header
+  %nav.navbar.tw
+    .container
+      .navbar-header
+        %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand.br_name{:href => "index.html"}
+          = image_tag 'logo.png'
+      .navbar-collapse.collapse
+        %ul.nav.navbar-nav
+          %li
+            %a{:href => ""} About
+      / /.nav-collapse
+.container
+  .row
+    .col-lg-12.bl_ls
+      %input.form-control{:placeholder => "Search...", :type => "text", :name=>'q'}/
+      %div#live-search-form
+.container
+  .row
+    .col-md-12.bl_ls
+      = link_to "New User", new_user_path, :class => "btn btn-primary"
+
+.container
+  .row
+    .col-md-12
+      %table.table.table-bordered.table-hover
+        %thead
+          %tr
+            %th
+              %i.fa.fa-list-ol{"aria-hidden" => "true"}
+            %th
+              %i.fa.fa-camera{"aria-hidden" => "true"}
+              Avatar
+            %th
+              %i.fa.fa-address-card{"aria-hidden" => "true"}
+              Name
+            %th
+              %i.fa.fa-user{"aria-hidden" => "true"}
+              User Role
+            %th
+              %i.fa.fa-calendar{"aria-hidden" => "true"}
+              Registration date
+            %th
+              %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+              Edit Information
+            %th
+              %i.fa.fa-trash-o{"aria-hidden" => "true"}
+              Delete
+        %tbody.users_list
+
+          = @users.each do |user|
+            = render :partial => 'user', :object => user
+
+      %hr
+        %div
+          = will_paginate @users
+.stop

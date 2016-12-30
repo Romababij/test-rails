@@ -1,0 +1,15 @@
+%tr.users_ajax
+  %td.user_number
+    = user.id
+  %td
+    = image_tag user.avatar.url , :class => "img-circle tw_avatar"
+  %td
+    = user.name
+  %td
+    = user.role
+  %td
+    = user.created_at.strftime("%b %d, %Y")
+  %td
+    = link_to content_tag('i','',class:'fa fa-pencil-square-o') + '  Edit', edit_user_path(user), :class=>'btn btn-primary'
+  %td
+    = link_to content_tag('i','',class:'fa fa-trash-o') + '  Delete', user, :method=>:delete, :class=>'btn btn-danger'

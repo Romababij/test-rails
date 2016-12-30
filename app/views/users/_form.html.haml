@@ -1,0 +1,5 @@
+= simple_form_for @user, html:{multipart: true} do |f|
+  = f.input :name
+  = f.file_field :avatar
+  = f.select :role, User::ROLES
+  = f.button :submit
