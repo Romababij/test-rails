@@ -54,7 +54,7 @@
         %tbody.users_list
 
           = @users.each do |user|
-            = render :partial => 'user', :object => user
+            = render :partial => 'user', :collection => @users, :as => :user
 
       %hr
         %div
