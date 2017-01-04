@@ -47,11 +47,5 @@ class UsersController < ApplicationController
     ])
   end
 
-  def live_search
-
-    @user = User.find_latest params[:id]
-
-    render :layout => false
-  end
 
 end
