@@ -13,3 +13,6 @@
     = link_to content_tag('i','',class:'fa fa-pencil-square-o') + '  Edit', edit_user_path(user), :class=>'btn btn-primary'
   %td
     = link_to content_tag('i','',class:'fa fa-trash-o') + '  Delete', user, :method=>:delete, :class=>'btn btn-danger'
+
+  %td
+    = link_to 'User Profile', user_path(user.id)

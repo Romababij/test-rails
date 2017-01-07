@@ -17,8 +17,7 @@
 .container
   .row
     .col-lg-12.bl_ls
-      = select(:user, 'user-select', User.all.collect {|p| [p.name] })
-      // = debug User.all.collect
+      = select_tag 'user-select', options_for_select(@users.collect{ |u| [u.name, u.id, { 'data-url ' => u.id }] })
 .container
   .row
     .col-md-12.bl_ls

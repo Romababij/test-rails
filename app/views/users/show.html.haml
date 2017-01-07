@@ -1,0 +1,18 @@
+.container
+  .row
+    .col-lg-12.bl_ls
+      %h1 Current User
+      %p
+        = image_tag @user.avatar.url , :class => "img-circle tw_avatar"
+      %p
+        %span.cu_title User ID
+        = @user.id
+      %p
+        %span.cu_title User name
+        = @user.name
+      %p
+        %span.cu_title User Created Date
+        = @user.created_at.strftime("%b %d, %Y")
+      %p
+        %span.cu_title User Role
+        = @user.role
