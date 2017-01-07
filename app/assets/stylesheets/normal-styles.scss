@@ -1,0 +1,166 @@
+html, body {
+  @extend %zeroMarginPadding;
+  height: 100%;
+  background: $mainBgColor;
+}
+
+body {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $mainColor;
+}
+
+a {
+  color: #1ca8dd;
+  text-decoration: none;
+}
+
+.table > tbody > tr > td , .table > thead > tr > th{
+  vertical-align: middle;
+  text-align:center;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: #f5f5f5;
+}
+
+.clearfix:after {content: "."; visibility: hidden; display: block; height: 0; clear: both;}
+
+.site {
+  position: relative;
+  z-index: 30;
+  padding: 0;
+  @extend %marginAuto;
+  overflow: hidden;
+  min-height: 100%;
+  height: auto;
+}
+
+.stop {
+  height:40px;
+  clear: both;
+}
+
+/*---Header---*/
+.header {
+  min-height: 101px;
+  a {
+    color:$mainBgColor;
+  }
+  .br_name {
+    color:$mainBgColor;
+    height:auto;
+    img {
+      height:50px;
+    }
+  }
+}
+
+.header .navbar-nav > li > a {
+  line-height:50px;
+  font-size:18px;
+}
+
+.tw {
+  background-color: $colorHeaderFooter;
+  border-color: $colorHeaderFooter;
+  border-radius: 0;
+  .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: transparent;
+  }
+}
+
+.user_number {
+  font-weight:bold;
+  font-size:16px;
+}
+
+.tw_avatar {
+  max-width:70px;
+  min-height:70px;
+}
+
+.bl_ls {
+  margin-bottom:50px;
+}
+
+.simple_form {
+  .form-control, select, input {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $mainColor;
+    background-color: $mainBgColor;
+    background-image: none;
+    border: 1px solid #434857;
+    border-radius: 4px;
+    margin-bottom: 30px;
+  }
+  input[type="submit"] {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+  }
+}
+
+
+.width50 {width: 50%;}
+
+.fb-profile img.fb-image-lg{
+  z-index: 0;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.fb-image-profile{
+  margin: -90px 10px 0px 50px;
+  z-index: 9;
+  width: 20%;
+}
+
+@media (max-width:768px){
+
+  .fb-profile-text>h1{
+    font-weight: 700;
+    font-size:16px;
+  }
+
+  .fb-image-profile  {
+    margin: -45px 10px 0px 25px;
+    z-index: 9;
+    width: 20%;
+  }
+}
+
+.modal-backdrop {display: none !important;}
+
+.info_modal {
+  text-align: left;
+}
+.modal-body .avatar img{
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  @extend %marginAuto;
+}
+
+/*---Footer---*/
+.footer {
+  position: relative;
+  height: 40px;
+  margin: -40px 0 0 0;
+  padding: 0;
+  background-color: $colorHeaderFooter;
+  width:100%;
+  z-index:40;
+  p {
+    color: $mainBgColor;
+    margin:0;
+    line-height:40px;
+  }
+}

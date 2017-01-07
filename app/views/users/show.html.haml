@@ -1,18 +1,38 @@
+%header.header
+  %nav.navbar.tw.navbar-fixed-top
+    .container
+      .navbar-header
+        %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand.br_name{:href => root_path}
+          = image_tag 'logo.png'
+      .navbar-collapse.collapse
+        %ul.nav.navbar-nav
+          %li
+            = link_to "Add New User", new_user_path
+      / /.nav-collapse
 .container
-  .row
-    .col-lg-12.bl_ls
-      %h1 Current User
-      %p
-        = image_tag @user.avatar.url , :class => "img-circle tw_avatar"
-      %p
-        %span.cu_title User ID
-        = @user.id
-      %p
-        %span.cu_title User name
+  %p
+    %span
+    = link_to content_tag('i','',class:'fa fa-pencil-square-o') + '  Edit', edit_user_path(@user), :class=>'btn btn-primary'
+  .fb-profile
+    %img.fb-image-lg{:align => "left", :alt => "Profile image example", :src => "http://lorempixel.com/850/280/nightlife/5/"}/
+    = image_tag @user.avatar.url , :class => "fb-image-profile thumbnail", :alt=> "Profile image", :align => "left"
+    .fb-profile-text
+      %h1
         = @user.name
       %p
-        %span.cu_title User Created Date
-        = @user.created_at.strftime("%b %d, %Y")
+        %span
+          %b User ID:
+        = @user.id
       %p
-        %span.cu_title User Role
+        %span
+          %b User role:
         = @user.role
+      %p
+        %span
+          %b Registration Date:
+        = @user.created_at.strftime("%b %d, %Y")

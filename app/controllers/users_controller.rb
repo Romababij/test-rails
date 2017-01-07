@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate(:per_page => 10, :page => params[:page])
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @users }
       format.js
     end
@@ -43,6 +43,7 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     @user.destroy
     redirect_to users_path
+    flash[:notice] = 'User successfully deleted'
   end
 
   def user_params
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
         :name, :role, :avatar
     ])
   end
+
 
 
 end

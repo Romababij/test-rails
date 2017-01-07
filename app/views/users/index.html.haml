@@ -1,5 +1,5 @@
 %header.header
-  %nav.navbar.tw
+  %nav.navbar.tw.navbar-fixed-top
     .container
       .navbar-header
         %button.navbar-toggle.collapsed{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
@@ -7,24 +7,23 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand.br_name{:href => "index.html"}
+        %a.navbar-brand.br_name{:href => root_path}
           = image_tag 'logo.png'
       .navbar-collapse.collapse
         %ul.nav.navbar-nav
           %li
-            %a{:href => ""} About
+            = link_to "Add New User", new_user_path
       / /.nav-collapse
 .container
   .row
     .col-lg-12.bl_ls
+      %p Search by User
       = select_tag 'user-select', options_for_select(@users.collect{ |u| [u.name, u.id, { 'data-url ' => u.id }] })
 .container
   .row
-    .col-md-12.bl_ls
-      = link_to "New User", new_user_path, :class => "btn btn-primary"
-
-.container
-  .row
+    - if flash[:notice]
+      .alert.alert-success
+        = flash[:notice]
     .col-md-12
       %table.table.table-bordered.table-hover
         %thead
@@ -49,12 +48,12 @@
             %th
               %i.fa.fa-trash-o{"aria-hidden" => "true"}
               Delete
+            %th
+              %i.fa.fa-envelope-open{"aria-hidden" => "true"}
+              Short Information
         %tbody.users_list
-
           = @users.each do |user|
             = render :partial => 'user', :object => user
-
-      %hr
-        %div
-          = will_paginate @users
+      %div
+        = will_paginate @users
 .stop

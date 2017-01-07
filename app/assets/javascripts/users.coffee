@@ -6,15 +6,11 @@ ready = ->
   $select = $('#user-select').selectize
     create: true
     sortField: 'text'
-
-  selectizeControl = $select[0].selectize
-
-  selectizeControl.on 'change', ->
-    currentID = selectizeControl.getValue()
-    url = '/users/'+currentID
-    #console.log(url);
-    window.open(url);
-    return
+    onChange: (value) ->
+      if value != ''
+        url = '/users/'+value
+        window.open(url);
+      return
 
 $(document).ready(ready)
 $(document).on('turbolinks:load', ready)
