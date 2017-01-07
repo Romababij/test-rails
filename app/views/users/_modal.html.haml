@@ -1,0 +1,24 @@
+.modal-dialog{:role => "document"}
+  .modal-content
+    .modal-header
+      %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+        %span{"aria-hidden" => "true"} ×
+      %h4#myModalLabel.modal-title Modal title
+    .modal-body
+      .avatar
+        = image_tag @user.avatar.url , :class => "", :alt=> "Profile image"
+      .info_modal
+        %h1.title
+          = @user.name
+        .desc
+          %b User ID :
+          = @user.id
+        .desc
+          %b User Role :
+          = @user.role
+        .desc
+          %b User Date Registration :
+          = @user.created_at.strftime("%b %d, %Y")
+
+    .modal-footer
+      %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close

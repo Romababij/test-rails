@@ -20,6 +20,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'will_paginate'
+gem 'selectize-rails'
 
 gem 'haml'
 gem 'haml-rails'

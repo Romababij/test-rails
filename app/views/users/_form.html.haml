@@ -1,5 +1,6 @@
+//= debug @user
 = simple_form_for @user, html:{multipart: true} do |f|
-  = f.input :name
-  = f.file_field :avatar
-  = f.select :role, User::ROLES
-  = f.button :submit
+  = f.input :name, :label => "User Name"
+  = f.file_field :avatar, :label => "User Avatar"
+  = f.select :role, User::ROLES, :label => "User Role"
+  = f.button :submit, :class => 'btn btn-info'
